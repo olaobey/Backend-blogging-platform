@@ -1,0 +1,42 @@
+{
+  "name": "backend-blogging-platform",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olaobey/Backend-blogging-platform.git"
+  },
+  "author": "AJeigbe Olaoluwa Samuel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/olaobey/Backend-blogging-platform/issues"
+  },
+  "homepage": "https://github.com/olaobey/Backend-blogging-platform#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "csurf": "^1.11.0",
+    "date-fns": "^2.30.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-paginate": "^1.0.2",
+    "express-rate-limit": "^6.7.0",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^7.1.1",
+    "mongoose-unique-validator": "^4.0.0",
+    "pino": "^8.14.1",
+    "pino-http": "^8.3.3",
+    "uuid": "^9.0.0",
+    "xss": "^1.0.14"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}
