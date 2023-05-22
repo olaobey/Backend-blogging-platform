@@ -48,3 +48,12 @@
 20230522	14:51:53	d769d8f9-4d6f-45fa-a080-861052dd4946	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	GET	/api/v1//users/updateProfile/6468422d44c283a785e2e960	undefined
 20230522	14:57:30	af8a9322-fcb4-42df-8e6d-8c24279213b1	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	DELETE	/api/v1/users/deleteUser/6468422d44c283a785e2e960	undefined
 20230522	15:07:28	00c9d062-2f71-4f6a-a43c-763a48ae5f2f	SyntaxError: Unexpected end of JSON input	DELETE	/api/v1/users/deleteProfile/6468422d44c283a785e2e960	undefined
+20230522	18:53:41	068afacd-0ae6-4d14-9ea6-fa21c1d546c4	Error: misconfigured csrf	POST	/api/v1/auth/register	undefined
+20230522	19:12:17	284e1620-51f3-44ea-9c44-d9e741e71a2a	Error: misconfigured csrf	GET	/api/v1/auth/logout	undefined
+20230522	19:14:00	2e252f0f-43c6-46d4-92ad-d0105d96719e	Error: misconfigured csrf	GET	/api/v1/blogs/getBlogs	undefined
+20230522	19:15:42	1101e71d-7559-4b00-8637-6c64bfb35377	Error: misconfigured csrf	GET	/api/v1/blogs/getBlogs	undefined
+20230522	19:23:38	58e0fee7-798e-480d-9770-b1e1334ea327	Error: misconfigured csrf	POST	/api/v1/auth/register	undefined
+20230522	19:23:43	8c1c2e31-eb85-4959-9c1a-568b82fc9591	Error: misconfigured csrf	POST	/api/v1/auth/register	undefined
+20230522	19:26:38	db4338d3-83d6-43c0-8559-f6e38be6605b	Error: misconfigured csrf	POST	/api/v1/auth/register	undefined
+20230522	20:15:50	dec165d7-c4c7-4bbf-9327-3a164f4b872c	Error: misconfigured csrf	POST	/api/v1/auth/register	undefined
+20230522	20:16:46	0f2a262d-dda3-4e08-8783-f1a4773d10fc	Error: misconfigured csrf	POST	/api/v1/auth/register	undefined

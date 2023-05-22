@@ -86,6 +86,10 @@ If you'd like to contribute to the Project Name, follow these steps:
 
 ## **API Endpoints**
 
+## **Base_Url**
+
+[BASE_URL](https://blogging-api-1a6x.onrender.com/api/v1)
+
 ### **Authentication**
 
 - POST /auth/register: `Register a new user.`
@@ -95,16 +99,20 @@ If you'd like to contribute to the Project Name, follow these steps:
 
 ### **Blog Posts**
 
-- GET /blogs: `Get a list of all blog posts.`
+- GET /blogs/getBlogs: `Get a list of all blog posts.`
+- GET /blogs/topBlog: `Get top blog posts.`
 - GET /blog/get/:id: `Get a specific blog post by ID.`
-- POST /blog: `Create a new blog post.`
-- PUT /blog/update/:id: `Update an existing blog post by ID.`
-- DELETE /blog/:id: `Delete a blog post by ID.`
+- POST blogs/addBlog: `Create a new blog post.`
+- PUT /blogs/update/:id: `Update an existing blog post by ID.`
+- DELETE /blogs/remove/:id: `Delete a blog post by ID.`
 
 ### **Categories**
 
-- GET /categories: `Get a list of all categories.`
-- GET /categories/:id: `Get a specific category by ID.`
+- POST /blogs/create: `Create a new blog category`
+- PUT /blogs/update/:id: `Update a blog category`
+- GET /blogs/categories: `Get a list of all categories.`
+- GET /blog/categories/:id: `Get a specific category by ID.`
+- DELETE /blogs/remove/:id: `Delete a blog category by ID.`
 
 ### **Comments**
 
@@ -113,15 +121,15 @@ If you'd like to contribute to the Project Name, follow these steps:
 
 ### **Profile**
 
-- PUT /profile/:id: `Update a profile.`
-- GET /profile: `Get a profiles.`
+- PUT /updateProfile/:id: `Update a profile.`
+- GET /GetProfile/:id `Get a profiles.`
+- Delete /deleteProfile/:id `Delete a profile.`
 
 ## **Built With**
 
 - bcrypt
 - cookie-parser
 - cors
-- csurf
 - date-fns
 - dotenv
 - express
@@ -135,7 +143,7 @@ If you'd like to contribute to the Project Name, follow these steps:
 - pino
 - pino-http
 - uuid
-- xss
+- helmet
 
 ### **Devdependency**
 
@@ -151,11 +159,11 @@ Implement measures like CSRF tokens or appropriate headers to protect against CS
 
 ## **Credits**
 
-The Project Name was created by **`Ajeigbe Olaoluwa Samuel`**.
+The Project Name was created by **`Worksquare`**.
 
 ## **Authors**
 
-The author of the project is Worksquare
+The author of the project is **`Ajeigbe Olaoluwa Samuelo`**.
 
 ## **License**
 
