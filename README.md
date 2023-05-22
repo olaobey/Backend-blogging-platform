@@ -125,6 +125,7 @@ If you'd like to contribute to the Project Name, follow these steps:
 - date-fns
 - dotenv
 - express
+- express-pino-logger
 - express-paginate
 - express-rate-limit
 - express-validator
@@ -139,6 +140,7 @@ If you'd like to contribute to the Project Name, follow these steps:
 ### **Devdependency**
 
 - nodemon
+- pino-pretty
 
 ## **Security Considerations**
 

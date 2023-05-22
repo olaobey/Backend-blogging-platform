@@ -9,7 +9,7 @@ const validationRules = () => {
     check("body")
       .trim()
       .isLength({ min: 2 })
-      .withMessage("Comment must be atleast 2 characters long"),
+      .withMessage("Comment must be at least 2 characters long"),
   ];
 };
 

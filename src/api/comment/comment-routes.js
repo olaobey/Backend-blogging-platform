@@ -4,11 +4,11 @@ const {
   validationRules,
   validate,
 } = require("../../validations/comment-validator");
-const commentController = require("./comment-routes");
+const commentController = require("./comment-controller");
 const ensuredAuthenticated = require("../../middleware/verifyJWT");
 
 router
-  .route("/comments")
+  .route("/add")
   .post(
     validationRules(),
     validate,
@@ -17,7 +17,7 @@ router
   );
 
 router
-  .route("/comments/:id")
+  .route("/delete/:id")
   .delete(ensuredAuthenticated, commentController.removeOne);
 
 module.exports = router;

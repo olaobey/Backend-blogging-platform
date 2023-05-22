@@ -21,17 +21,18 @@ const addOne = async (req, res) => {
 
 const removeOne = async (req, res) => {
   try {
-    const deleted = await Comment.findByIdAndDelete(req.params.id);
-    if (!deleted) {
+    const comment = await Comment.findByIdAndDelete(req.params.id);
+    if (!comment) {
       return res.status(404).json({
         message: "Item not found",
         success: false,
       });
+    } else {
+      return res.status(204).json({
+        message: "Item successfully deleted",
+        success: true,
+      });
     }
-    return res.status(204).json({
-      message: "Item successfully deleted",
-      success: true,
-    });
   } catch (err) {
     return res.status(500).json({
       message: err.message,

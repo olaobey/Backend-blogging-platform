@@ -2,7 +2,7 @@ const { Schema, model } = require("mongoose");
 
 const UserSchema = new Schema(
   {
-    name: {
+    username: {
       type: String,
       required: true,
     },
@@ -22,6 +22,7 @@ const UserSchema = new Schema(
       type: Boolean,
       default: true,
     },
+    refreshToken: [String],
   },
   { timestamps: true }
 );

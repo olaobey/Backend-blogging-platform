@@ -8,14 +8,18 @@ const {
 } = require("../../validations/user-validator");
 
 router
-  .route("/profile/:id")
-  .put(
-    ensuredAuthenticated,
-    validationRules(),
-    validate,
-    profileController.updateOne
-  );
+  .route("/getProfile/:id")
+  .get(ensuredAuthenticated, profileController.getUserById);
 
-router.route("/profile").get(ensuredAuthenticated, profileController.getOne);
+router.route("/updateProfile/:id").put(
+  ensuredAuthenticated,
+  // validationRules(),
+  // validate,
+  profileController.updateUser
+);
+
+router
+  .route("/deleteProfile/:id")
+  .delete(ensuredAuthenticated, profileController.deleteUser);
 
 module.exports = router;

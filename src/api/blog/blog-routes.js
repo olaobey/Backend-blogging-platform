@@ -8,7 +8,7 @@ const {
 const ensuredAuthenticated = require("../../middleware/verifyJWT");
 
 router
-  .route("/blog")
+  .route("/addBlog")
   .post(
     validationRules(),
     validate,
@@ -17,19 +17,17 @@ router
   );
 
 router
-  .route("/blog/update/:id")
+  .route("/update/:id")
   .put(ensuredAuthenticated, blogController.updateBlog);
 
-router.route("/blogs").get(ensuredAuthenticated, blogController.getAllBlogs);
+router.route("/getBlogs").get(ensuredAuthenticated, blogController.getAllBlogs);
+
+router.route("/get/:id").get(ensuredAuthenticated, blogController.getBlogById);
+
+router.route("/topBlog").get(ensuredAuthenticated, blogController.getTopBlog);
 
 router
-  .route("/blog/get/:id")
-  .get(ensuredAuthenticated, blogController.getBlogById);
-
-router.route("/blog/top").get(ensuredAuthenticated, blogController.getTopBlog);
-
-router
-  .route("/blog/:id")
+  .route("/remove/:id")
   .delete(ensuredAuthenticated, blogController.deleteBlog);
 
 module.exports = router;

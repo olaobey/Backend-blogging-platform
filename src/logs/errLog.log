@@ -1,0 +1,50 @@
+20230519	17:39:34	a00cbef3-711a-49f9-82dd-63ba5c9ad151	ForbiddenError: invalid csrf token	POST	/api/v1/auth/register	undefined
+20230519	17:42:18	c9bd9c9f-356a-42c7-985d-df697f9ad753	ForbiddenError: invalid csrf token	POST	/api/v1/auth/register	undefined
+20230520	01:31:04	d4a40119-10ec-46b5-a330-0bbdd63ae716	ForbiddenError: invalid csrf token	POST	/api/v1/auth/register	undefined
+20230520	03:44:17	806aeb67-1694-45f3-b4ed-033c88d9abf3	Error: misconfigured csrf	POST	/api/v1/auth/register	undefined
+20230520	03:50:06	2b44555b-537d-4a70-b674-11d5ab9e1eaa	Error: misconfigured csrf	POST	/api/v1/auth/register	undefined
+20230520	03:58:39	6f350c30-b434-47b8-b7d2-9d9b3641f0a9	Error: misconfigured csrf	POST	/api/v1/auth/register	undefined
+20230520	03:58:43	b16ec660-98ad-4f20-b2cf-2b9accf2881e	Error: misconfigured csrf	POST	/api/v1/auth/register	undefined
+20230520	04:03:16	fd14c7d9-9821-4e53-af26-84496e298153	Error: misconfigured csrf	POST	/api/v1/auth/register	undefined
+20230520	04:37:15	cfebc0f6-5b6f-4185-ac72-8e541ca8e4f2	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	GET	/api/v1/auth/login	undefined
+20230520	08:58:34	8bdd2792-ff4b-405b-9727-dccefde3ad5e	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/auth/refresh	undefined
+20230520	09:09:22	3a00bbed-4f2a-4e2b-8d7d-6ba19d2bb141	TypeError: console is not a function	GET	/api/v1/auth/refresh	undefined
+20230520	09:11:59	5452d2a0-9f21-4608-b5af-04d95fe6a04a	TypeError: console is not a function	GET	/api/v1/auth/refresh	undefined
+20230520	09:15:54	fe8c87eb-2fbc-4517-911e-ce392e1ef04a	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/auth/refresh	undefined
+20230520	09:16:04	02b48d07-341f-4da1-9458-c35bb98fcb02	TypeError: console is not a function	GET	/api/v1/auth/refresh	undefined
+20230520	09:19:07	97afb39d-d4a2-45f3-9830-aef13913cd57	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/auth/refresh	undefined
+20230520	11:41:53	13fa6dab-37eb-4ff9-b1f9-e491a6beaa04	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/auth/refresh	undefined
+20230521	11:07:49	cb3292e4-8c3e-4800-893a-e10522cb5c14	SyntaxError: Unexpected token d in JSON at position 165	POST	/api/v1/blog	undefined
+20230521	11:30:47	5ebd2584-23ab-4c14-a521-9b838abf9841	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/blog/post	undefined
+20230521	13:43:56	92c148a4-5b34-43f1-b9b9-15e68da9f54f	SyntaxError: Unexpected token } in JSON at position 147	POST	/api/v1/blog/post	undefined
+20230521	18:08:28	35c1bea2-db8e-4e1f-9c34-67225e24c29f	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/auth/logout/6468422d44c283a785e2e960	undefined
+20230521	18:08:38	5ed6e29f-53c4-4735-bd5f-c3a7991f2580	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	DELETE	/api/v1/auth/logout/6468422d44c283a785e2e960	undefined
+20230521	18:09:29	628ca0b9-df9d-4e16-b3ab-f84b2a7feaa6	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	DELETE	/api/v1/auth/logout/6468422d44c283a785e2e960	undefined
+20230521	19:29:03	f737abdc-0d73-4ce6-a89a-14d909fcf315	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	GET	/api/v1/auth/logout/6468422d44c283a785e2e960	undefined
+20230521	21:29:39	31611411-a1b5-468b-b3ca-57b94c9801b7	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/blog/post	undefined
+20230521	21:54:16	d38ce95e-e7f9-4d79-82c3-227237085e1e	SyntaxError: Unexpected string in JSON at position 98	POST	/api/v1/blog/addBlog	undefined
+20230522	02:32:05	c9cd9a41-1cd1-430f-81fb-a475aec27b2f	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/categories/create	undefined
+20230522	02:34:20	872ba07e-7a3e-4fa8-b359-1fad3b9b09b7	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/categories/create	undefined
+20230522	02:37:57	fd486012-19ff-45fe-97b9-cbf222823631	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/categories/create	undefined
+20230522	02:44:04	283e1c13-1c14-40ae-8350-f2fc84a77d9f	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/categories/createCategory	undefined
+20230522	02:45:46	4232474c-bd9c-4b77-b9c9-0c3d0b698dff	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/categories/createCategory	undefined
+20230522	02:47:31	757a915a-3859-46e4-b71b-cb557206a01c	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/categories/createCategory	undefined
+20230522	02:56:20	15eeb528-086e-4aea-9764-7f06597f1131	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/categories/createCategory	undefined
+20230522	02:59:26	316566d8-166c-4ae9-8a23-74fe0409699a	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	GET	/favicon.ico	undefined
+20230522	03:05:47	1d7ed9a8-3b42-4fd7-8f0c-7ddb40fc4467	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/categories/createCategory	undefined
+20230522	03:21:20	c882d686-2e41-4403-a4b1-ddbff6dfe24c	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/categories/update/6468422d44c283a785e2e960	undefined
+20230522	03:33:56	9992b575-1cf7-4a02-b9df-3e843b7624a5	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	DELETE	/api/v1/categories/get/646ad0f8821e10afdb72e2f0	undefined
+20230522	03:48:21	0d5489ae-5b28-405d-903d-f87ffe93770f	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/comments/add	undefined
+20230522	04:00:35	34feae53-e6da-497e-8295-c921b9066b6f	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	DELETE	/api/v1/comments/delete/646ad8cdaaadff059d9177f0	undefined
+20230522	07:25:21	25b94ea6-df9b-4156-9e21-71d1a17a9088	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/users/createProfile	undefined
+20230522	07:26:30	2b6122d6-fc09-4c8e-a91e-d19aa4c4a027	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/users/updateProfile	undefined
+20230522	07:28:20	9e39dc0d-5e0d-42af-97e4-220bb1b46270	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	PUT	/api/v1/users/updateProfile	undefined
+20230522	10:00:03	fe83eb07-d531-4eda-bf41-6fc65ddc4f4b	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/auth/refresh	undefined
+20230522	10:04:07	dac440e2-22a5-4b87-b6aa-e34bfb7a996f	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	POST	/api/v1/auth/refresh	undefined
+20230522	11:02:25	cbbd9cdd-dd37-498e-b635-eda02c53edca	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	PUT	/api/v1/update/646b38df525a3a0b72352989	undefined
+20230522	11:15:28	7161c0d0-b6e2-491f-bab3-03a422abfbaf	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	GET	/api/v1/blogs/getBlogs	undefined
+20230522	13:02:33	37356b4b-5918-48bf-822d-415927ed9930	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	GET	/api/v1/blogs/remove/646b483021e90d8c581cc51	undefined
+20230522	14:00:18	59a344e6-3216-45f4-b41a-f697b4dc284b	SyntaxError: Unexpected token } in JSON at position 78	PUT	/api/v1/users/updateProfile/6468422d44c283a785e2e960	undefined
+20230522	14:51:53	d769d8f9-4d6f-45fa-a080-861052dd4946	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	GET	/api/v1//users/updateProfile/6468422d44c283a785e2e960	undefined
+20230522	14:57:30	af8a9322-fcb4-42df-8e6d-8c24279213b1	Error: ENOENT: no such file or directory, stat 'C:\Users\USER\Backend-blogging-platform\src\views\404.html'	DELETE	/api/v1/users/deleteUser/6468422d44c283a785e2e960	undefined
+20230522	15:07:28	00c9d062-2f71-4f6a-a43c-763a48ae5f2f	SyntaxError: Unexpected end of JSON input	DELETE	/api/v1/users/deleteProfile/6468422d44c283a785e2e960	undefined

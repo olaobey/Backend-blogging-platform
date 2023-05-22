@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 const uniqueValidator = require("mongoose-unique-validator");
 
-const BlogSchema = new mongoose.Schema(
+const BlogSchema = new Schema(
   {
     title: {
       type: String,

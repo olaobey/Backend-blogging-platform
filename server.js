@@ -24,7 +24,8 @@ const startServer = async () => {
     });
   } catch (error) {
     logger.error(error);
-    startServer();
+    // Retry connection after a short delay
+    setTimeout(startServer, 2000);
   }
 };
 startServer();

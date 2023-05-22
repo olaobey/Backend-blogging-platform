@@ -6,14 +6,14 @@ const CategoryRoute = require("../api/category/categories-routes");
 const CommentRoute = require("../api/comment/comment-routes");
 const ProfileRoute = require("../api/profile/profile-routes");
 
-router.use("/", AuthRoute);
+router.use("/auth", AuthRoute);
 
-router.use("/", BlogRoute);
+router.use("/blogs", BlogRoute);
 
-router.use("/", CategoryRoute);
+router.use("/categories", CategoryRoute);
 
-router.use("/", CommentRoute);
+router.use("/comments", CommentRoute);
 
-router.use("/", ProfileRoute);
+router.use("/users", ProfileRoute);
 
 module.exports = router;

@@ -1,5 +1,5 @@
 const rateLimit = require("express-rate-limit");
-const { logEvents } = require("./logger");
+const { logEvents } = require("./errorLogger");
 
 const loginLimiter = rateLimit({
   windowMs: 60 * 1000, // 1 minute

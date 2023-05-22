@@ -7,7 +7,7 @@ const register = async (req, res) => {
     const { username, email, password } = req.body;
 
     // Check if the user already exists
-    const existingUser = await User.findOne({ email });
+    const existingUser = await User.findOne({ email }).exec();
     if (existingUser) {
       return res.status(400).json({
         message: "User already exists",
@@ -40,10 +40,12 @@ const register = async (req, res) => {
 };
 
 const login = async (req, res) => {
+  const cookies = req.cookies;
+  console.log(`cookie available at login: ${JSON.stringify(cookies)}`);
   try {
-    const { email, password } = req.body;
+    const { username, password } = req.body;
 
-    if (!email || !password) {
+    if (!username || !password) {
       return res.status(400).json({
         message: "All fields are required",
         success: false,
@@ -51,7 +53,9 @@ const login = async (req, res) => {
     }
 
     // Check if the user exists
-    const foundUser = await User.findOne({ email }).exec();
+    const foundUser = await User.findOne({ username })
+      .select("+password")
+      .exec();
     if (!foundUser || !foundUser.active) {
       return res.status(401).json({
         message: "Unauthorized",
@@ -62,7 +66,7 @@ const login = async (req, res) => {
     // Validate the password
     const isPasswordValid = await bcrypt.compare(password, foundUser.password);
     if (!isPasswordValid) {
-      return res.status(400).json({
+      return res.status(401).json({
         message: "Invalid credentials",
         success: false,
       });
@@ -81,22 +85,49 @@ const login = async (req, res) => {
       { expiresIn: "15m" }
     );
 
-    const refreshToken = jwt.sign(
-      { email: foundUser.email },
+    const newRefreshToken = jwt.sign(
+      {
+        username: foundUser.username,
+      },
       process.env.REFRESH_TOKEN_SECRET,
       { expiresIn: "7d" }
     );
 
-    // Create secure cookie with refresh token
-    res.cookie("jwt", refreshToken, {
-      httpOnly: true, //accessible only by web server
-      secure: true, //https
-      sameSite: "None", //cross-site cookie
-      maxAge: 7 * 24 * 60 * 60 * 1000, //cookie expiry: set to match rT
+    // Changed to let keyword
+    let newRefreshTokenArray = !cookies?.jwt
+      ? foundUser.refreshToken
+      : foundUser.refreshToken.filter((rt) => rt !== cookies.jwt);
+    if (cookies?.jwt) {
+      const refreshToken = cookies.jwt;
+      const foundToken = await User.findOne({ refreshToken }).exec();
+      // Detected refresh token reuse!
+      if (!foundToken) {
+        console.log("attempted refresh token reuse at login!");
+        // clear out ALL previous refresh tokens
+        newRefreshTokenArray = [];
+      }
+      res.clearCookie("jwt", {
+        httpOnly: true,
+        // sameSite: "None",
+        secure: true,
+      });
+    }
+    // Saving refreshToken with current user
+    foundUser.refreshToken = [...newRefreshTokenArray, newRefreshToken];
+    const result = await foundUser.save();
+    console.log(result);
+
+    // Creates Secure Cookie with refresh token
+    res.cookie("jwt", newRefreshToken, {
+      httpOnly: true,
+      secure: true,
+      // sameSite: "None",
+      maxAge: 24 * 60 * 60 * 1000,
     });
 
-    // Send accessToken containing username and userId
+    // console.log(req.cookies.jwt);
 
+    // Send the JWT accessToken with success message in the response
     res.json({
       accessToken: accessToken,
       message: "Login is successful",
@@ -111,61 +142,119 @@ const login = async (req, res) => {
 };
 
 // There is need for refresh because access token has expired.
-const refresh = (req, res) => {
-  const cookies = req.cookies;
+const refresh = async (req, res) => {
+  console.log(req.cookies);
+  try {
+    const cookies = req.cookies;
+    if (!cookies?.jwt) return res.sendStatus(401);
+    const refreshToken = cookies.jwt;
+    res.clearCookie("jwt", { httpOnly: true, sameSite: "None", secure: true });
 
-  if (!cookies?.jwt)
-    return res.status(401).json({
-      message: "Unauthorized",
+    const foundUser = await User.findOne({ refreshToken }).exec();
+
+    // Detected refresh token reuse!
+    if (!foundUser) {
+      jwt.verify(
+        refreshToken,
+        process.env.REFRESH_TOKEN_SECRET,
+        async (err, decoded) => {
+          if (err) return res.sendStatus(403); //Forbidden
+          console.log("attempted refresh token reuse!");
+          const hackedUser = await User.findOne({
+            username: decoded.username,
+          }).exec();
+          hackedUser.refreshToken = [];
+          const result = await hackedUser.save();
+          console.log(result);
+        }
+      );
+      return res.sendStatus(403); //Forbidden
+    }
+
+    const newRefreshTokenArray = foundUser.refreshToken.filter(
+      (rt) => rt !== refreshToken
+    );
+
+    // evaluate jwt
+    jwt.verify(
+      refreshToken,
+      process.env.REFRESH_TOKEN_SECRET,
+      async (err, decoded) => {
+        if (err) {
+          console.log("expired refresh token");
+          foundUser.refreshToken = [...newRefreshTokenArray];
+          const result = await foundUser.save();
+          console.log(result);
+        }
+        if (err || foundUser.username !== decoded.username)
+          return res.sendStatus(403);
+
+        // Refresh token was still valid
+        const accessToken = jwt.sign(
+          {
+            UserInfo: {
+              username: decoded.username,
+            },
+          },
+          process.env.ACCESS_TOKEN_SECRET,
+          { expiresIn: "10s" }
+        );
+
+        const newRefreshToken = jwt.sign(
+          { username: foundUser.username },
+          process.env.REFRESH_TOKEN_SECRET,
+          { expiresIn: "1d" }
+        );
+        // Saving refreshToken with current user
+        foundUser.refreshToken = [...newRefreshTokenArray, newRefreshToken];
+        const result = await foundUser.save();
+
+        // Creates Secure Cookie with refresh token
+        res.cookie("jwt", newRefreshToken, {
+          httpOnly: true,
+          secure: true,
+          sameSite: "None",
+          maxAge: 24 * 60 * 60 * 1000,
+        });
+
+        res.json({
+          accessToken: accessToken,
+          result: result,
+        });
+      }
+    );
+  } catch (error) {
+    res.status(500).json({
+      message: "Server error",
       success: false,
     });
-
-  const refreshToken = cookies.jwt;
-
-  jwt.verify(
-    refreshToken,
-    process.env.REFRESH_TOKEN_SECRET,
-    async (err, decoded) => {
-      if (err)
-        return res.status(403).json({
-          message: "Forbidden",
-          success: false,
-        });
-
-      const foundUser = await User.findOne({
-        email: decoded.email,
-      }).exec();
-
-      if (!foundUser)
-        return res.status(401).json({
-          message: "Unauthorized",
-          success: false,
-        });
-
-      const accessToken = jwt.sign(
-        {
-          UserInfo: {
-            email: foundUser.email,
-          },
-        },
-        process.env.ACCESS_TOKEN_SECRET,
-        { expiresIn: "15m" }
-      );
-
-      res.json({
-        accessToken: accessToken,
-        success: "true",
-      });
-    }
-  );
+  }
 };
 
 //There is need for logout just to clear cookie if exists
-const logout = (req, res) => {
+const logout = async (req, res) => {
+  // On client, also delete the accessToken
+
   const cookies = req.cookies;
   if (!cookies?.jwt) return res.sendStatus(204); //No content
+  const refreshToken = cookies.jwt;
+
+  // Is refreshToken in db?
+  const foundUser = await User.findOne({ refreshToken }).exec();
+  if (!foundUser) {
+    res.clearCookie("jwt", { httpOnly: true, sameSite: "None", secure: true });
+    return res.sendStatus(204);
+  }
+
+  // Delete refreshToken in db
+  foundUser.refreshToken = foundUser.refreshToken.filter(
+    (rt) => rt !== refreshToken
+  );
+  const result = await foundUser.save();
+  console.log(result);
+
   res.clearCookie("jwt", { httpOnly: true, sameSite: "None", secure: true });
-  res.json({
+  res.sendStatus(204).json({
     message: "Cookie cleared",
     success: "true",
   });

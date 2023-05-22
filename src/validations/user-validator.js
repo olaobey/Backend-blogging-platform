@@ -7,10 +7,10 @@ const validationRules = () => {
       .isEmail()
       .normalizeEmail()
       .withMessage("Please enter a valid email"),
-    check("name")
+    check("username")
       .trim()
       .isLength({ min: 1, max: 20 })
-      .withMessage("Name must be between 1 and 20 characters"),
+      .withMessage("username must be between 1 and 20 characters"),
     check("password")
       .trim()
       .isLength({ min: 6, max: 16 })

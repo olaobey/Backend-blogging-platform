@@ -5,20 +5,17 @@ const {
   validationRules,
   validate,
 } = require("../../validations/user-validator");
-const ensureAuthenticated = require("../../middleware/verifyJWT");
 
 const loginLimiter = require("../../middleware/loginLimiter");
 
 router
   .route("/register")
-  .post(loginLimiter, validationRules(), validate, authController.register);
+  .post(validationRules(), validate, authController.register);
 
-router
-  .route("/login")
-  .post(loginLimiter, ensureAuthenticated, authController.login);
+router.route("/login").post(loginLimiter, authController.login);
 
 router.route("/refresh").get(authController.refresh);
 
-router.route("/logout").post(authController.logout);
+router.route("/logout").get(authController.logout);
 
 module.exports = router;
